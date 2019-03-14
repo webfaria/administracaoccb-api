@@ -13,11 +13,14 @@
 	<groupId>com.farani.administracaoccb-api</groupId>
 	<artifactId>administracaoccb-api</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	
 	<name>administracaoccb-api</name>
 	<description>Adminstração CCB de Passos-MG</description>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -50,6 +53,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<!-- Migracoes - Flyway -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+			
 	</dependencies>
 
 	<build>
