@@ -25,11 +25,11 @@ public class AdministracaoCcbExceptionHandler extends ResponseEntityExceptionHan
 
 	@Autowired
 	private MessageSource messageSource;
-
+	
 	@Override
 	protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
-
+		
 		String mensagemUsuario = messageSource.getMessage("mensagem.invalida", null, LocaleContextHolder.getLocale());
 		String mensagemDesenvolvedor = ex.getCause().toString();
 		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
@@ -63,12 +63,12 @@ public class AdministracaoCcbExceptionHandler extends ResponseEntityExceptionHan
 			
 		return erros;
 	}
-
+	
 	public static class Erro {
-
+		
 		private String mensagemUsuario;
 		private String mensagemDesenvolvedor;
-
+		
 		public Erro(String mensagemUsuario, String mensagemDesenvolvedor) {
 			this.mensagemUsuario = mensagemUsuario;
 			this.mensagemDesenvolvedor = mensagemDesenvolvedor;
@@ -81,6 +81,8 @@ public class AdministracaoCcbExceptionHandler extends ResponseEntityExceptionHan
 		public String getMensagemDesenvolvedor() {
 			return mensagemDesenvolvedor;
 		}
-
+		
 	}
+	
 }
+
