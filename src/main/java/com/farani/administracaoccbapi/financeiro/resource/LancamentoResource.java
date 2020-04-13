@@ -25,6 +25,7 @@ import com.farani.administracaoccbapi.event.RecursoCriadoEvent;
 import com.farani.administracaoccbapi.exceptionhandler.AdministracaoCcbExceptionHandler.Erro;
 import com.farani.administracaoccbapi.financeiro.model.Lancamento;
 import com.farani.administracaoccbapi.financeiro.repository.LancamentoRepository;
+import com.farani.administracaoccbapi.financeiro.repository.filter.LancamentoFilter;
 import com.farani.administracaoccbapi.financeiro.service.LancamentoService;
 import com.farani.administracaoccbapi.financeiro.service.exception.PessoaInexistenteOuInativaException;
 
@@ -45,8 +46,8 @@ public class LancamentoResource {
 	private MessageSource messageSource;
 
 	@GetMapping
-	public List<Lancamento> listar() {
-		return lancamentoRepository.findAll();
+	public List<Lancamento> pesquisar(LancamentoFilter lancamentoFilter) {
+		return lancamentoRepository.filtrar(lancamentoFilter);
 	}
 
 	@PostMapping
